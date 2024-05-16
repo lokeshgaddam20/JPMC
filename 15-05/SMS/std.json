@@ -1,0 +1,28 @@
+{
+    "users" : [
+        {
+            "id" : 3301,
+            "name" : "Lakush",
+            "branch" : "CSIT",
+            "cgpa" : 9.98
+        },
+        {
+            "id" : 3302,
+            "name" : "Akhulash",
+            "branch" : "CSIT",
+            "cgpa" : 9.12
+        },
+        {
+            "id" : 3303,
+            "name" : "Poven",
+            "branch" : "IT",
+            "cgpa" : 9.34
+        },
+        {
+            "id" : 3304,
+            "name" : "Hutush",
+            "branch" : "CSE",
+            "cgpa" : 8.92
+        }
+    ]
+}

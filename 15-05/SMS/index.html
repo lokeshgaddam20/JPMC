@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body onload="fetchData()">
+    <h1 align="center">Student Management</h1><br>
+    <form onsubmit="addData()" align="center" id="stuform">
+        <input placeholder="RollNo" type="number" id="rno">
+        <input placeholder="Name" type="text" id="name">
+        <input placeholder="Branch" type="text" id="branch">
+        <input placeholder="CGPA" type="text" id="cgpa">
+        <input type="submit" value="Add">
+    </form><br><hr><br>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>RollNo</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>CGPA</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
