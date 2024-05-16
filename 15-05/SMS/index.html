@@ -9,8 +9,9 @@
     <title>Document</title>
 </head>
 <body onload="fetchData()">
-    <h1 align="center">Student Management</h1><br>
-    <form onsubmit="addData()" align="center" id="stuform">
+    <div class="container">
+    <h1>Student Management</h1><br>
+    <form onsubmit="addData()" id="stuform">
         <input placeholder="RollNo" type="number" id="rno">
         <input placeholder="Name" type="text" id="name">
         <input placeholder="Branch" type="text" id="branch">
@@ -31,6 +32,7 @@
             <tbody id="tablebody"></tbody>
         </table>
     </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

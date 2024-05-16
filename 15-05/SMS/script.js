@@ -29,7 +29,7 @@ async function addData() {
     const b = document.getElementById('branch').value;
     const c = document.getElementById('cgpa').value;
 
-    const res = await axios.post(`http://localhost:3000/users`, {
+    await axios.post(`http://localhost:3000/users`, {
         "id": r,
         "name": n,
         "branch": b,
@@ -49,7 +49,7 @@ async function editData(id) {
     document.getElementById('stuform').onsubmit = async function(event) {
         event.preventDefault();
 
-        const res = await axios.patch(`http://localhost:3000/users/${id}`, {
+        await axios.patch(`http://localhost:3000/users/${id}`, {
             "id": document.getElementById('rno').value,
             "name": document.getElementById('name').value,
             "branch": document.getElementById('branch').value,
@@ -61,6 +61,6 @@ async function editData(id) {
 
 
 async function del(id) {
-    const res = await axios.delete(`http://localhost:3000/users/${id}`);
+    await axios.delete(`http://localhost:3000/users/${id}`);
     fetchData();
 }
