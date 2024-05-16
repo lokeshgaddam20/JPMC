@@ -46,13 +46,19 @@ async function editData(id) {
     document.getElementById('branch').value = student.branch;
     document.getElementById('cgpa').value = student.cgpa;
 
-    const res = await axios.put(`http://localhost:3000/users/${id}`, {
-        "id": "3306",
-        "name": "lokesh",
-        "branch": "vsit",
-        "cgpa": 10
-    });
+    document.getElementById('stuform').onsubmit = async function(event) {
+        event.preventDefault();
+
+        const res = await axios.patch(`http://localhost:3000/users/${id}`, {
+            "id": document.getElementById('rno').value,
+            "name": document.getElementById('name').value,
+            "branch": document.getElementById('branch').value,
+            "cgpa": document.getElementById('cgpa').value
+        });
+        fetchData();
+    };
 }
+
 
 async function del(id) {
     const res = await axios.delete(`http://localhost:3000/users/${id}`);
