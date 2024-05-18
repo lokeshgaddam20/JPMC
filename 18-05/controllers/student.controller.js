@@ -12,9 +12,8 @@ async function getStudents (req, res){
 async function createStudent (req, res){
     const { id } = req.params;
     const { name, branch, cgpa } = req.body;
-    const student = new studentModel({ _id : id, name, branch, cgpa });
     try {
-        const newStudent = await student.save();
+        const newStudent = await studentModel.create({ _id : id, name, branch, cgpa });
         res.status(201).json(newStudent);
     } catch (err) {
         res.status(400).json({ message: err.message });
