@@ -1,6 +1,6 @@
 const studentModel = require('../models/student.model');
 
-async function getStudents (req, res){
+async function getStudents(req, res) {
     try {
         const students = await studentModel.find();
         res.json(students);
@@ -9,18 +9,32 @@ async function getStudents (req, res){
     }
 }
 
-async function createStudent (req, res){
+async function getStudentDetails(req, res) {
+    const { id } = req.params;
+    try {
+        const students = await studentModel.find({ _id: id });
+        if (students.length === 0) {
+            return res.status(404).json(null);
+        } else {
+            res.json(students);
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+
+async function createStudent(req, res) {
     const { id } = req.params;
     const { name, branch, cgpa } = req.body;
     try {
-        const newStudent = await studentModel.create({ _id : id, name, branch, cgpa });
+        const newStudent = await studentModel.create({ _id: id, name, branch, cgpa });
         res.status(201).json(newStudent);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
 }
 
-async function updateStudent (req, res){
+async function updateStudent(req, res) {
     const { id } = req.params;
     const { name, branch, cgpa } = req.body;
     try {
@@ -31,11 +45,11 @@ async function updateStudent (req, res){
     }
 }
 
-async function deleteStudent (req, res){
+async function deleteStudent(req, res) {
     const { id } = req.params;
     try {
         await
-        studentModel.findByIdAndDelete(id);
+            studentModel.findByIdAndDelete(id);
         res.json({ message: 'Student deleted' });
     }
     catch (err) {
@@ -43,4 +57,4 @@ async function deleteStudent (req, res){
     }
 }
 
-module.exports = { getStudents, createStudent, updateStudent, deleteStudent };
+module.exports = { getStudents, getStudentDetails, createStudent, updateStudent, deleteStudent };
